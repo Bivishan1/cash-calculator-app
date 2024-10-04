@@ -7,6 +7,12 @@ body {
   color: #333;
 }
 
+img {
+/*  border:5px solid black;*/
+  height:45px;
+    width:75px;
+}
+
 .container {
   max-width: 600px;
   margin: 100px auto;
