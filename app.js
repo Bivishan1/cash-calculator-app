@@ -75,6 +75,7 @@ document.addEventListener('DOMContentLoaded', ()=> {
     ];
 
     function helper(n) {
+        console.log('n:'+n);
         if (n < 20) return belowTwenty[n];
         if (n < 100) return tens[Math.floor(n / 10)] + (n % 10 !== 0 ? ' ' + belowTwenty[n % 10] : '');
         if (n < 1000) return belowTwenty[Math.floor(n / 100)] + ' hundred' + (n % 100 !== 0 ? ' ' + helper(n % 100) : '');
@@ -94,14 +95,18 @@ btnReset.addEventListener('click', resetValue);
 
 function resetValue() {
     cashInputs.forEach((input)=> {
-        input.value ='';
-    })
+        input.value ='';// can't access textContent property in input field.
+    });
+
     cashTexts.forEach((txt)=> {
-        txt.textContent = 0;
-    })
+        txt.textContent = 0;//text label property will not access value property.
+    });
+
     txtFinalCash.textContent = 'Total Cash: 0';
     txtFinalCashInWords.textContent = 'In Words: Zero';
+
 }
+
 
 
 
